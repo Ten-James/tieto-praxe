@@ -1,5 +1,9 @@
 package org.example;
 
+import org.example.enums.SceneEnum;
+import org.example.scene.GameMapScene;
+import org.example.scene.IScene;
+import org.example.scene.MainScene;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -12,11 +16,8 @@ public class SceneManager {
         return sceneArray.get(index);
     }
 
-    public void setCurrentScene(int newIndex) {
-        if (newIndex >= sceneArray.size())
-            return;
-
-        index = newIndex;
+    public void setCurrentScene(SceneEnum scene) {
+        index = scene.ordinal();
     }
 
     public SceneManager() {
@@ -25,8 +26,8 @@ public class SceneManager {
 
 
         // Adding scenes to array
-        sceneArray.add(new MainScene());
-        sceneArray.add(new GameMapScene());
+        sceneArray.add(SceneEnum.MAIN_SCENE.ordinal(),new MainScene());
+        sceneArray.add(SceneEnum.GAME_MAP_SCENE.ordinal(),new GameMapScene());
 
         // Initializing all scenes
         for (IScene scene : sceneArray) {

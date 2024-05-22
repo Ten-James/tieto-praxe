@@ -1,6 +1,8 @@
-package org.example;
+package org.example.scene;
 
-import java.util.Scanner;
+import org.example.Setting;
+import org.example.enums.SceneEnum;
+import org.example.SceneManager;
 
 public class MainScene implements IScene {
     SceneManager manager;
@@ -12,11 +14,11 @@ public class MainScene implements IScene {
     @Override
     public void update(String line) {
         if (line.contains("4")) {
-            //todo
+            Setting.instance.difficultyFactor = 10;
         }
 
         if (line.contains("1")) {
-            manager.setCurrentScene(1);
+            manager.setCurrentScene(SceneEnum.GAME_MAP_SCENE);
         }
     }
 

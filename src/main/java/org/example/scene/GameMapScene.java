@@ -1,4 +1,7 @@
-package org.example;
+package org.example.scene;
+
+import org.example.SceneManager;
+import org.example.Setting;
 
 public class GameMapScene implements IScene {
     SceneManager manager;
@@ -15,5 +18,6 @@ public class GameMapScene implements IScene {
     @Override
     public void render() {
         System.out.println("Mapa");
+        System.out.println(Setting.instance.difficultyFactor);
     }
 }
