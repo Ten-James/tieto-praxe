@@ -1,10 +1,14 @@
 package org.example.scene;
 
+import org.example.Player;
 import org.example.Setting;
 import org.example.enums.SceneEnum;
 import org.example.SceneManager;
 
 public class MainScene implements IScene {
+    // Get reference of player Singleton
+    Player player = Player.instance;
+
     SceneManager manager;
     @Override
     public void init(SceneManager manager) {
@@ -20,15 +24,17 @@ public class MainScene implements IScene {
         if (line.contains("1")) {
             manager.setCurrentScene(SceneEnum.GAME_MAP_SCENE);
         }
+        if (line.contains("2")) {
+            manager.setCurrentScene(SceneEnum.INV_SCENE);
+        }
     }
 
     @Override
     public void render() {
-        System.out.println("Main Menu");
-        System.out.println("[1] Hrat");
-        System.out.println("[2] nastaveni");
-        System.out.println("[3] Credits");
-        System.out.println("[4] Exit");
+        System.out.println("hp: " + player.health);
+        System.out.print("[1] Mapa ");
+        System.out.print("[2] Inventory");
+        System.out.println();
 
     }
 }
